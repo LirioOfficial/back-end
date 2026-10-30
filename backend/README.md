@@ -17,7 +17,6 @@ Backend em Node.js, Express e MongoDB/Mongoose. Este repositório não contém v
 | `MONGODB_URI` | Obrigatória | Conexão Mongoose |
 | `JWT_SECRET` | Obrigatória para login/rotas privadas | Assinatura e validação JWT |
 | `CORS_ORIGINS` | Opcional | Origens de frontend separadas por vírgula |
-| `TEST_MONGODB_URI` | Opcional, testes apenas | URI do banco isolado para o teste de integração |
 | `ROBOFLOW_API_KEY` | Obrigatória para análise de imagens | Chave privada do workflow Tugarin v5 no Roboflow |
 
 Em desenvolvimento (`NODE_ENV` diferente de `production`), se `CORS_ORIGINS` não estiver definida, são permitidas as origens locais `http://localhost:3000` e `http://localhost:5173`. Em produção, sem configuração explícita, o middleware não libera cabeçalho CORS. Quando `CORS_ORIGINS` está definida, somente as origens listadas são permitidas. Troque as origens demonstrativas pela URL local realmente usada pelo frontend; nenhuma URL de produção é presumida.
@@ -85,12 +84,6 @@ Exemplo de ocorrência:
 ## REST Client (VS Code)
 
 `testes.http` usa variáveis para tokens, senhas e IDs. Copie `http-client.env.json.example` para `http-client.env.json`, arquivo ignorado pelo Git, selecione o ambiente `local` e preencha os valores apenas na cópia local. Faça login para obter tokens e use registros de teste próprios. Os exemplos incluem chamadas DELETE, que removem permanentemente o registro indicado.
-
-## Testes
-
-Execute `npm test`. Testes unitários verificam os controllers, validações e autenticação sem MongoDB. O teste de integração verifica persistência e isolamento entre proprietários; ele só usa `TEST_MONGODB_URI` e exige que o nome do banco termine em `test`, `_test` ou `-test`. Sem essa variável, o teste de integração fica ignorado, não aprovado. Exemplo PowerShell com banco local isolado: `$env:TEST_MONGODB_URI='mongodb://127.0.0.1:27017/tugarin_test'; npm test`.
-
-Não aponte `TEST_MONGODB_URI` para banco de desenvolvimento ou produção. O teste cria documentos com identificadores aleatórios e remove apenas esses documentos ao finalizar; não executa limpeza global nem migra dados.
 
 ## Limitações e dados existentes
 
