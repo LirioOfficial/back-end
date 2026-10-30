@@ -21,11 +21,13 @@ Backend em Node.js, Express e MongoDB/Mongoose. Este repositório não contém v
 
 Em desenvolvimento (`NODE_ENV` diferente de `production`), se `CORS_ORIGINS` não estiver definida, são permitidas as origens locais `http://localhost:3000` e `http://localhost:5173`. Em produção, sem configuração explícita, o middleware não libera cabeçalho CORS. Quando `CORS_ORIGINS` está definida, somente as origens listadas são permitidas. Troque as origens demonstrativas pela URL local realmente usada pelo frontend; nenhuma URL de produção é presumida.
 
-A configuração de MongoDB usa os resolvedores DNS do sistema operacional. Não há servidores DNS públicos fixos no código.
+Para resolver os registros SRV do MongoDB Atlas, o backend configura explicitamente os servidores DNS públicos `1.1.1.1` (Cloudflare) e `8.8.8.8` (Google) no Node.js. O ambiente precisa permitir consultas DNS a esses servidores para que a conexão funcione.
 
 ## Autenticação e respostas
 
-Cadastro e login são públicos. As demais rotas abaixo exigem `Authorization: Bearer {{token}}`. O cadastro/login devolve JSON, sem hash de senha. Respostas de erro usam `{ "erro": "..." }`. Status usuais: 400 para entrada inválida, 401 para ausência/invalidade de token, 404 para registro inexistente ou fora do escopo do usuário, 409 para chave única duplicada, 500 para falha interna e 501 para análise ainda não implementada.
+Cadastro e login são públicos. As demais rotas abaixo exigem `Authorization: Bearer {{token}}`. O cadastro/login devolve JSON, sem hash de senha. Respostas de erro usam `{ "erro": "..." }`.
+
+Status usuais: 400 para entrada inválida, 401 para ausência ou invalidade de token, 404 para registro inexistente ou fora do escopo do usuário, 409 para chave única duplicada, 500 para falha interna, 502 para falha na comunicação com o provedor de análise de imagens e 503 quando a análise de imagens não está configurada.
 
 Exemplo sem credenciais reais:
 
@@ -75,7 +77,11 @@ Exemplo de ocorrência:
 {
   "tipo": "Avistamento",
   "especie": "Não identificada",
-  "local": { "nome": "Praia de exemplo", "cidade": "Cananéia", "estado": "SP" },
+  "local": {
+    "nome": "Praia de exemplo",
+    "cidade": "Cananéia",
+    "estado": "SP"
+  },
   "observacoes": "Registro de teste",
   "imagens": []
 }
