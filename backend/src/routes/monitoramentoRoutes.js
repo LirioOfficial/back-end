@@ -1,1 +1,0 @@
-import {Router} from "express";import {autenticar} from "../middlewares/autenticar.js";import {listar} from "../controllers/monitoramentoController.js";const r=Router();r.use(autenticar);r.get("/",listar);export default r;
