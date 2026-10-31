@@ -1,0 +1,980 @@
+/* ==========================================
+   FONTES
+========================================== */
+
+@font-face {
+  font-family: Montserrat;
+  src: url('/fonts/Montserrat-Regular.ttf');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url('/fonts/Montserrat-SemiBold.ttf');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url('/fonts/Montserrat-Bold.ttf');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: Potta;
+  src: url('/fonts/PottaOne-Regular.ttf');
+  font-weight: 400;
+}
+
+/* ==========================================
+   CONFIGURAÇÕES GERAIS
+========================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#__next {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  font-family: Montserrat, Arial, sans-serif;
+  color: #101820;
+}
+
+body {
+  background: #e6eeee;
+}
+
+#__next {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* ==========================================
+   ESTRUTURA DO APLICATIVO
+========================================== */
+
+.mobile {
+  width: 390px;
+  max-width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: #effaf8;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 390px;
+  padding-bottom: 51px;
+  overflow-x: hidden;
+}
+
+.topbar {
+  width: 100%;
+  height: 73px;
+  min-height: 73px;
+  background: #0783ad;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.conteudo {
+  width: 100%;
+  flex: 1;
+  padding: 16px 13px 90px;
+}
+
+/* ==========================================
+   MENU INFERIOR
+========================================== */
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(100%, 390px);
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #0783ad;
+  z-index: 100;
+}
+
+.nav-item {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background: transparent;
+  border: none;
+}
+
+.nav-item img[src*="icon-home"] {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.nav-item img[src*="icon-ocorrencias"] {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  transform: scale(1.15);
+}
+
+.nav-item img[src*="icon-tugarin"] {
+  width: 43px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.nav-item img[src*="icon-mapa"] {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.nav-item img[src*="icon-perfil"] {
+  width: 39px;
+  height: 39px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+/* ==========================================
+   LOGIN
+========================================== */
+
+.login-screen {
+  background: #fff;
+  padding: 0 28px;
+}
+
+.login-logo {
+  font-family: Potta, cursive;
+  font-size: 52px;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 27vh;
+  margin-bottom: 12vh;
+  background: linear-gradient(
+    180deg,
+    #15bfae 0%,
+    #0783ad 100%
+  );
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.login-form label,
+.form-registro > label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  margin: 18px 0 6px;
+}
+
+.login-form input {
+  width: 100%;
+  height: 54px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: #f4f5f6;
+  padding: 12px;
+  font: inherit;
+  font-size: 15px;
+}
+
+.login-actions {
+  display: flex;
+  gap: 18px;
+  margin-top: 55px;
+}
+
+.erro {
+  color: #c22;
+  font-size: 12px;
+}
+
+/* ==========================================
+   BOTÕES
+========================================== */
+
+.btn {
+  border: 0;
+  border-radius: 7px;
+  padding: 10px 18px;
+  text-decoration: none;
+  text-align: center;
+  font: 600 15px Montserrat;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.azul {
+  background: #0783ad;
+  color: #fff;
+  flex: 1;
+}
+
+.azul:hover {
+  background: #067397;
+}
+
+.verde {
+  background: #15bfae;
+  color: #fff;
+  flex: 1;
+}
+
+.verde:hover {
+  background: #10aa9c;
+}
+
+.contorno {
+  background: transparent;
+  color: #15bfae;
+  border: 1px solid #15bfae;
+  flex: 1;
+}
+
+/* ==========================================
+   INÍCIO
+========================================== */
+
+.boas-vindas {
+  padding: 8px 11px 9px;
+}
+
+.boas-vindas h2 {
+  font-size: 23px;
+  margin: 0;
+}
+
+.boas-vindas p {
+  margin: 0;
+  color: #667;
+}
+
+/* DASHBOARD */
+
+.painel {
+  background: #fff;
+  border-radius: 12px;
+  padding: 12px 15px;
+  margin: 0 7px 14px;
+}
+
+.painel h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+
+.metricas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 13px;
+}
+
+.metricas div {
+  height: 93px;
+  background: #e6f2f6;
+  border-radius: 12px;
+  padding: 10px 15px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.metricas img {
+  width: 27px;
+  height: 27px;
+  object-fit: contain;
+  margin-bottom: 4px;
+
+  filter: brightness(0) saturate(100%)
+    invert(37%) sepia(96%) saturate(1300%)
+    hue-rotate(158deg) brightness(92%) contrast(102%);
+}
+
+.metricas strong {
+  color: #000;
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 1px;
+}
+
+.metricas span {
+  color: #000;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+/* GRÁFICO */
+
+.grafico {
+  height: 267px;
+}
+
+.grafico h3 small {
+  float: right;
+  font-size: 10px;
+}
+
+.barras {
+  height: 205px;
+  display: flex;
+  align-items: end;
+  justify-content: space-around;
+  padding: 18px 0 0;
+}
+
+.barras div {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  gap: 8px;
+}
+
+.barras i {
+  display: block;
+  width: 18px;
+  border-radius: 5px 5px 0 0;
+  background: #0783ad;
+}
+
+.barras small {
+  font-size: 10px;
+}
+/* ==========================================
+   GRÁFICO
+========================================== */
+
+.grafico {
+  height: 267px;
+}
+
+.grafico h3 small {
+  float: right;
+  font-size: 10px;
+}
+
+.barras {
+  height: 205px;
+  display: flex;
+  align-items: end;
+  justify-content: space-around;
+  padding: 18px 0 0;
+}
+
+.barras div {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  gap: 8px;
+}
+
+.barras i {
+  display: block;
+  width: 18px;
+  border-radius: 5px 5px 0 0;
+  background: #0783ad;
+}
+
+.barras small {
+  font-size: 10px;
+}
+
+/* ==========================================
+   ATIVIDADES RECENTES
+========================================== */
+
+.atividade h3 a {
+  float: right;
+  color: #15bfae;
+  text-decoration: none;
+  font-size: 10px;
+}
+
+.atividade-item {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.atividade-item img {
+  width: 72px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 9px;
+}
+
+.atividade-item div {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  font-size: 11px;
+}
+
+.atividade-item small {
+  font-size: 9px;
+  color: #666;
+}
+
+.atividade-item > a {
+  font-size: 9px;
+  color: #333;
+}
+
+/* ==========================================
+   REGISTROS
+========================================== */
+
+.busca-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px 13px 10px;
+}
+
+.busca-card label {
+  font-size: 13px;
+}
+
+.busca-card input {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  padding: 11px 0;
+  background: transparent;
+  font: 14px Montserrat;
+  outline: none;
+}
+
+.filtros {
+  display: flex;
+  gap: 12px;
+  margin-top: 17px;
+  flex-wrap: wrap;
+}
+
+.filtros button {
+  border: 0;
+  background: #e4eef7;
+  color: #35465a;
+  padding: 5px 8px;
+  border-radius: 5px;
+  font: 13px Montserrat;
+}
+
+.filtros button.ativo {
+  background: #d8f6f2;
+  color: #10b7a9;
+}
+
+.vazio {
+  position: absolute;
+  top: 48%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: #555;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.botao-flutuante {
+  position: fixed;
+  bottom: 99px;
+  right: max(calc((100vw - 390px) / 2 + 27px), 27px);
+  width: 51px;
+  height: 50px;
+  border-radius: 11px;
+  background: #15bfae;
+  color: white;
+  text-decoration: none;
+  font-size: 38px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lista-registros {
+  margin-top: 15px;
+}
+
+.registro {
+  background: #fff;
+  border-radius: 11px;
+  padding: 12px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 13px;
+}
+
+.registro small {
+  color: #667;
+}
+
+/* ==========================================
+   CADASTRO DE TARTARUGAS
+========================================== */
+
+.etapas {
+  display: flex;
+  justify-content: space-between;
+  font-size: 9px;
+  margin: 0 21px 14px;
+  border-bottom: 3px solid #15bfae;
+  padding-bottom: 5px;
+}
+
+.etapas span {
+  width: 50%;
+  text-align: center;
+}
+
+.etapas .corrente {
+  color: #15bfae;
+}
+
+.form-registro {
+  padding: 0 20px;
+}
+
+.form-registro input:not([type=radio]):not([type=file]),
+.form-registro select,
+.form-registro textarea {
+  width: 100%;
+  border: 1px solid #c8c8c8;
+  border-radius: 8px;
+  padding: 8px 11px;
+  background: #fff;
+  font: 13px Montserrat;
+  min-height: 34px;
+}
+
+.form-registro textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.opcoes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+}
+
+.opcoes-grid button {
+  height: 35px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  font: 600 13px Montserrat;
+}
+
+.opcoes-grid button.escolhido {
+  background: #b4e9e4;
+  border-color: #15bfae;
+  color: #009f92;
+}
+
+.upload-label {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-top: 22px !important;
+}
+
+.upload-label input {
+  display: block;
+  margin-top: 12px;
+  font-size: 11px;
+}
+
+.central {
+  display: block;
+  width: 116px;
+  margin: 23px auto 0;
+}
+
+.dupla {
+  display: flex;
+  gap: 12px;
+}
+
+.dupla > * {
+  min-width: 0;
+  flex: 1;
+}
+
+.dupla.tres {
+  gap: 7px;
+}
+
+.dupla.tres input {
+  font-size: 10px !important;
+}
+
+.radio {
+  display: flex !important;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  margin: 4px 0 !important;
+}
+
+.radio input {
+  accent-color: #15bfae;
+}
+
+/* ==========================================
+   SELETOR DE ESPÉCIE
+========================================== */
+
+.seletor-especie {
+  position: relative;
+  width: 100%;
+  margin-bottom: 2px;
+  font-family: Montserrat, sans-serif;
+}
+
+.seletor-especie-botao {
+  width: 100%;
+  min-height: 38px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  color: #101820;
+  border: 1px solid #c8c8c8;
+  border-radius: 8px;
+  font-family: Montserrat, sans-serif;
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.seletor-especie-botao:hover {
+  background: #e6f3fa;
+}
+
+.seletor-especie-botao.aberto {
+  border-color: #15bfae;
+  border-radius: 8px 8px 0 0;
+}
+
+.seletor-especie-seta {
+  font-size: 18px;
+  transition: transform 0.2s;
+}
+
+.seletor-especie-seta.rotacionada {
+  transform: rotate(180deg);
+}
+
+.seletor-especie-opcoes {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  max-height: 230px;
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid #c8c8c8;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  z-index: 200;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.seletor-especie-opcao {
+  width: 100%;
+  min-height: 38px;
+  padding: 9px 13px;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  color: #101820;
+  border: none;
+  border-bottom: 3px solid transparent;
+  font-family: Montserrat, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.seletor-especie-opcao:hover {
+  background: #e6f3fa;
+  color: #101820;
+}
+
+.seletor-especie-opcao.selecionada {
+  background: #e7f8f5;
+  color: #0783ad;
+  font-weight: 700;
+  border-bottom: 3px solid #0783ad;
+}
+
+.seletor-especie-opcao:focus-visible {
+  outline: 2px solid #15bfae;
+  outline-offset: -2px;
+}
+
+/* ==========================================
+   MONITORAMENTO
+========================================== */
+
+.camera-titulo {
+  background: #15bfae;
+  color: white;
+  border-radius: 11px;
+  text-align: center;
+  padding: 8px;
+  font-weight: 700;
+  margin: 0 7px 10px;
+}
+
+.camera-titulo small {
+  display: block;
+  font-size: 12px;
+}
+
+.camera-card {
+  background: white;
+  border-radius: 12px;
+  padding: 7px;
+  margin-bottom: 18px;
+}
+
+.camera-imagem {
+  height: 255px;
+  background: #d4e4e6;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.camera-imagem img {
+  width: 80px;
+  opacity: 0.5;
+}
+
+.live {
+  position: absolute;
+  top: 9px;
+  left: 9px;
+  background: #333;
+  color: white;
+  border-radius: 12px;
+  padding: 4px 8px;
+  font-size: 10px;
+}
+
+.camera-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 5px;
+  font-size: 11px;
+}
+
+.camera-info small {
+  color: #777;
+}
+
+.conexao {
+  color: green;
+  font-size: 10px;
+  margin: 0 5px 10px;
+}
+
+.camera-card > .btn {
+  width: 100%;
+}
+
+/* ==========================================
+   PERFIL
+========================================== */
+
+.subtitulo {
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+  margin: 20px;
+}
+
+.perfil-card {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.perfil-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+}
+
+.perfil-card h3 {
+  font-size: 16px;
+  margin: 12px 0 3px;
+}
+
+.perfil-card p {
+  font-size: 12px;
+  margin: 0 0 5px;
+}
+
+.perfil-card a {
+  color: #15bfae;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.sair {
+  position: absolute;
+  bottom: 110px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: red;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* ==========================================
+   MAPA
+========================================== */
+
+.mapa {
+  height: calc(100vh - 160px);
+  height: calc(100dvh - 160px);
+  margin: -16px -13px;
+  background: linear-gradient(
+    145deg,
+    #294e48,
+    #6c8878 45%,
+    #315b56
+  );
+  padding: 20px;
+  position: relative;
+  color: #fff;
+}
+
+.mapa input {
+  width: 100%;
+  border: 0;
+  border-radius: 9px;
+  padding: 10px 14px;
+  text-align: center;
+  font: 14px Montserrat;
+}
+
+.pins {
+  font-size: 32px;
+  text-align: center;
+  margin-top: 100px;
+  color: #15d4c0;
+  line-height: 2.5;
+}
+
+.mapa p {
+  position: absolute;
+  bottom: 25px;
+  font-size: 13px;
+}
+
+/* ==========================================
+   CADASTRO DE USUÁRIO
+========================================== */
+
+.titulo-cadastro {
+  margin-top: 25vh;
+  text-align: center;
+  color: #0783ad;
+}
+
+/* ==========================================
+   RESPONSIVIDADE
+========================================== */
+
+@media (max-width: 390px) {
+  .mobile {
+    width: 100%;
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+
+  .bottom-nav {
+    width: 100%;
+  }
+
+  .botao-flutuante {
+    right: 27px;
+  }
+
+  .login-logo {
+    font-size: 46px;
+  }
+}
+
+@media (min-width: 391px) {
+  .mobile {
+    width: 390px;
+    max-width: 390px;
+  }
+}
+
+/* ROLAGEM */
+
+html {
+  scrollbar-gutter: stable;
+}
+
+body {
+  overflow-y: scroll;
+}
+
+#__next {
+  min-height: 100vh;
+}
+
+/* CENTRALIZAÇÃO */
+
+.mobile {
+  width: 390px;
+  max-width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+}
